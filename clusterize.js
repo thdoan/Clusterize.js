@@ -279,6 +279,10 @@
       } else if(only_bottom_offset_changed) {
         this.content_elem.lastChild.style.height = data.bottom_offset + 'px';
       }
+
+      // calculate optimum rows in block (based on how many rows are visible in viewport)
+      this.options.rows_in_block = Math.round(this.scroll_elem.clientHeight/this.options.item_height);
+      this.getRowsHeight(rows);
     },
     // unfortunately ie <= 9 does not allow to use innerHTML for table elements, so make a workaround
     html: function(data) {
